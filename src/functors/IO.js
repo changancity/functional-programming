@@ -1,3 +1,5 @@
+import util from 'util';
+
 export class IO {
   static of(x) {
     return new IO(() => x);
@@ -11,7 +13,7 @@ export class IO {
     return new IO(compose(fn, this.$value));
   }
 
-  inspect() {
-    return `IO(${inspect(this.$value)})`;
+  [util.inspect.custom]() {
+    return `IO(${util.inspect(this.$value)})`;
   }
 }

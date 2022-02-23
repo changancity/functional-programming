@@ -1,3 +1,5 @@
+import util from 'util';
+
 export class Maybe {
   static of(x) {
     return new Maybe(x);
@@ -17,9 +19,9 @@ export class Maybe {
       : Maybe.of(f(this.$value));
   }
 
-  inspect() {
+  [util.inspect.custom]() {
     return this.isNothing
       ? 'Nothing'
-      : `Just(${inspect(this.$value)})`;
+      : `Just(${util.inspect(this.$value)})`;
   }
 }

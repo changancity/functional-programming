@@ -1,3 +1,5 @@
+import util from 'util';
+
 export class Task {
   static of(x) {
     return new Task((_, resolve) => resolve(x));
@@ -17,7 +19,7 @@ export class Task {
     ));
   }
 
-  inspect() {
-    return `Task(${inspect(this.fork)})`;
+  [util.inspect.custom]() {
+    return `Task(${util.inspect(this.fork)})`;
   }
 }

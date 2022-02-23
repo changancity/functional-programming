@@ -1,3 +1,5 @@
+import util from 'util';
+
 export class Either {
   static of(x) {
     return new Right(x);
@@ -13,8 +15,8 @@ class Left extends Either {
     return this;
   }
 
-  inspect() {
-    return `Left(${inspect(this.$value)})`;
+  [util.inspect.custom]() {
+    return `Left(${util.inspect(this.$value)})`;
   }
 }
 
@@ -23,7 +25,7 @@ class Right extends Either {
     return Either.of(f(this.$value));
   }
 
-  inspect() {
-    return `Right(${inspect(this.$value)})`;
+  [util.inspect.custom]() {
+    return `Right(${util.inspect(this.$value)})`;
   }
 }
