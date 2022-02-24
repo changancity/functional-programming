@@ -10,7 +10,7 @@ export class Either {
   }
 }
 
-class Left extends Either {
+export class Left extends Either {
   map(f) {
     return this;
   }
@@ -20,7 +20,7 @@ class Left extends Either {
   }
 }
 
-class Right extends Either {
+export class Right extends Either {
   map(f) {
     return Either.of(f(this.$value));
   }

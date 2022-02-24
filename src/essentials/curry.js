@@ -1,11 +1,11 @@
 export function curry(fn) {
-  return (...args) => {
+  return function curried(...args) {
     if (args.length >= fn.length) {
-      fn.apply(null, args);
+      return fn.apply(null, args);
     }
 
     return curry(
       fn.bind(null, ...args)
     );
-  }
+  } 
 }
