@@ -1,4 +1,5 @@
 import util from 'util';
+import { compose } from '../essentials';
 
 export class Task {
   static of(x) {
